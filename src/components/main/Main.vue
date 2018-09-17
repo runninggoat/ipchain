@@ -4,6 +4,13 @@
     <h2>{{ nodeEnv }}</h2>
     <h2>{{ greetings }}</h2>
     <h3 @click="logout">Logout</h3>
+    <v-app>
+      <v-content>
+        <div>
+          <v-alert :value="true" type="success">{{ $t('message.hello') }}</v-alert>
+        </div>
+      </v-content>
+    </v-app>
   </div>
 </template>
 
@@ -18,6 +25,7 @@ export default {
   created () {
     console.log(process.env.VUE_APP_TITLE)
     console.log(this.$store.state.user)
+    this.$i18n.locale = 'zh'
   },
   methods: {
     logout () {
