@@ -1,5 +1,5 @@
 <template>
-  <v-flex md8 offset-md2>
+  <v-flex xs12 md12 lg10 offset-lg1 xl8 offset-xl2>
     <v-stepper v-model="e1">
       <v-stepper-header>
         <v-stepper-step :complete="e1 > 1" step="1">Setup Account</v-stepper-step>
@@ -127,7 +127,7 @@ export default {
       repassword: '',
       repasswordRules: [
         v => !!v || 'Password confirmation is required',
-        v => this.password === this.repassword || 'Your passwords do not match',
+        v => this.password === v || 'Your passwords do not match',
       ],
     }
   },

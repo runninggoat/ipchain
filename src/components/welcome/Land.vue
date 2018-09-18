@@ -8,6 +8,7 @@
       <span class="headline white--text">IP Chain</span>
       <v-spacer></v-spacer>
       <v-toolbar-items>
+        <v-btn flat class="white--text" v-show="displayOpt === 1">Sign In</v-btn>
         <v-btn flat class="white--text">Forgot Password</v-btn>
         <v-btn flat class="white--text">Help</v-btn>
         <v-btn flat class="white--text">Contact</v-btn>
