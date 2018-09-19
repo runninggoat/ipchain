@@ -18,6 +18,8 @@
               :counter="30"
               @input="trim"
               label="Username"
+              clearable
+              box
               required
             ></v-text-field>
             <v-text-field
@@ -25,10 +27,13 @@
               :rules="emailRules"
               @input="trim"
               label="E-mail"
+              clearable
+              box
               required
             ></v-text-field>
           </v-form>
-          <v-btn :disabled="!valid1"
+          <v-btn
+            :disabled="!valid1"
             color="primary"
             @click="e1 = 2"
           >
@@ -43,6 +48,8 @@
               :rules="secretkeyRules"
               @input="trim"
               label="Secret Key"
+              clearable
+              box
               required
             ></v-text-field>
           </v-form>
@@ -69,6 +76,8 @@
               :rules="passwordRules"
               @input="trim"
               label="Password"
+              clearable
+              box
               required
             ></v-text-field>
             <v-text-field
@@ -77,12 +86,14 @@
               :rules="repasswordRules"
               @input="trim"
               label="Confirm Password"
+              clearable
+              box
               required
             ></v-text-field>
           </v-form>
           <v-btn :disabled="!valid3"
             color="primary"
-            @click="$emit('go-to-signin')"
+            @click="$emit('sign-up')"
           >
             Continue
           </v-btn>
@@ -137,7 +148,7 @@ export default {
     trimStr: require('@/common.js').trimStr,
     trim () {
       this.$nextTick(() => {
-        this.username = this.trimStr(this.username)
+        this.username = this.username ? this.trimStr(this.username) : ''
         this.email = this.trimStr(this.email)
         this.secretkey = this.trimStr(this.secretkey)
         this.password = this.trimStr(this.password)

@@ -45,7 +45,7 @@ export const regexMap = {
   city: /^\d{0,10}([\u4e00-\u9fa5]|[A-Za-z])+\d{0,10}$/,
   provice: /^\d{0,10}([\u4e00-\u9fa5]|[A-Za-z])+\d{0,10}$/,
   address1: /^\d{0,10}([\u4e00-\u9fa5]|[A-Za-z,.-@!%*#?&]){1,128}\d{0,10}$/,
-  username: /^\d{0,32}|([\u4e00-\u9fa5]|[A-Za-z]){0,32}|$/,
+  username: /^([\u4e00-\u9fa5]|[A-Za-z\d]){0,32}$/,
 }
 
 export function isEmpty (str) {

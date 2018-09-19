@@ -8,7 +8,18 @@
       <span class="headline white--text">IP Chain</span>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn flat class="white--text" v-show="displayOpt === 1">Sign In</v-btn>
+        <v-btn
+          flat
+          class="white--text"
+          v-show="displayOpt === 1"
+          @click="displayOpt = 2"
+        >Sign In</v-btn>
+        <v-btn
+          flat
+          class="white--text"
+          v-show="displayOpt === 2"
+          @click="displayOpt = 1"
+        >Sign Up</v-btn>
         <v-btn flat class="white--text">Forgot Password</v-btn>
         <v-btn flat class="white--text">Help</v-btn>
         <v-btn flat class="white--text">Contact</v-btn>
@@ -35,7 +46,10 @@
             <v-btn color="info">Sign in</v-btn>
           </div>
           <div v-if="displayOpt === 1" transition="fade-transition">
-            <sign-up @go-to-signin="displayOpt = 2"></sign-up>
+            <sign-up @sign-up="displayOpt = 2"></sign-up>
+          </div>
+          <div v-if="displayOpt === 2" transition="fade-transition">
+            <sign-in @sign-in="displayOpt = 1"></sign-in>
           </div>
         </v-flex>
         <v-flex md6>
@@ -50,9 +64,11 @@
 
 <script>
 import SignUp from './SignUp.vue'
+import SignIn from './SignIn.vue'
 export default {
   components: {
     SignUp,
+    SignIn,
   },
   data () {
     return {
